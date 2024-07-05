@@ -1,0 +1,19 @@
+param ($ip)
+
+if (!$ip) {
+echo "digite o ip alvo"
+
+}
+
+
+else{
+$topports = 21,22,33306,80,443
+try {foreach ($var1 in $topports){
+
+if ( Test-NetConnection $ip -Port $var1 -WarningAction SilentlyContinue -InformationLevel Quiet )
+{
+echo "$var1 PORTA ABERTA"
+
+}}else{ echo "porta fechada"
+}}catch {}
+}
