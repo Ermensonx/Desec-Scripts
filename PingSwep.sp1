@@ -1,0 +1,16 @@
+#Desec Ping Sweep PowerShell
+param($ip)
+if (!$ip){
+
+echo "exemplo de uso:pinger.sp1 192.168.0"
+
+
+}else{
+foreach ($var1 in 1..254)
+
+{
+try {$resp = ping -n 1 "$ip.$var1"| Select-String "bytes=32"
+$resp.Line.Split(' ')[2] -replace ":"," "
+}catch{}
+}
+}
