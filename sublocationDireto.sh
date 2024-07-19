@@ -9,7 +9,7 @@ else
     if [ "$resposta" == "1" ]; then
         for palavra in $(cat "$2"); do
         echo "todos os hosts encontrados"
-            host "$palavra.$1"
+            host -t "$palavra.$1"
             echo "----------------------------------"
             echo "hosts com direcionamento para outro serviço " 
             host -t cname "$palavra.$1" | grep " alias for"
