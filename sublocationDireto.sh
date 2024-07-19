@@ -12,7 +12,7 @@ else
             host "$palavra.$1"
             echo "----------------------------------"
             echo "hosts com direcionamento para outro serviço " 
-            host -t cname "$palavra.$1"
+            host -t cname "$palavra.$1" | grep " alias for"
         done | grep -v "NXDOMAIN"
     else
         echo "digite o range do bloco de IP que você deseja escanear (ex: 244 266):"
